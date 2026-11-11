@@ -170,7 +170,8 @@ section{position:relative;padding:90px 0}
 .book>*{min-width:0}
 .book h2{font-size:clamp(32px,4vw,50px)}
 .book .lead{color:var(--mute);margin:10px 0 22px}
-.form{display:grid;gap:14px}
+.form{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.form>*{min-width:0}
 .step>b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#cfcac6;margin-bottom:8px;font-weight:600}
 .opts,.days{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
 .opts{flex-wrap:wrap;overflow:visible}
