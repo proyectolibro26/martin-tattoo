@@ -41,14 +41,14 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:.01em;line-heig
 .opening .bgp::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 55% at 50% 45%,transparent,#050505 85%)}
 .dust{position:absolute;inset:0;background-image:radial-gradient(1px 1px at 20% 30%,#e8c98a 50%,transparent),radial-gradient(1px 1px at 70% 60%,#e8c98a 50%,transparent),radial-gradient(1.5px 1.5px at 85% 25%,#e8c98a 50%,transparent),radial-gradient(1px 1px at 35% 80%,#e8c98a 50%,transparent),radial-gradient(1px 1px at 55% 15%,#e8c98a 50%,transparent),radial-gradient(1.5px 1.5px at 12% 65%,#e8c98a 50%,transparent);opacity:.6;animation:tw 3s ease-in-out infinite alternate}
 @keyframes tw{to{opacity:.2}}
-.opening .in{position:relative;text-align:center;padding:0 16px;width:100%;max-width:640px}
+.opening .in{position:relative;text-align:center;padding:0 16px;width:100%;max-width:760px}
 .opening .tag{font-family:var(--cond);color:var(--gold);letter-spacing:.3em;font-size:clamp(10px,2.6vw,15px);white-space:nowrap;opacity:0;animation:up .9s .2s forwards}
 .opening .tag i{font-style:normal;margin:0 10px}
 .opening .sig{font-family:var(--script);color:var(--gold2);font-size:clamp(40px,10vw,74px);line-height:1;margin-top:18px;opacity:0;animation:up 1s .7s forwards;text-shadow:0 2px 0 #7a5b25}
-.opening .big{font-family:var(--cond);font-weight:700;font-size:clamp(70px,24vw,220px);white-space:nowrap;line-height:.85;letter-spacing:-.01em;color:transparent;background:linear-gradient(180deg,#fff,#cfcfcf 60%,#8d8d8d);-webkit-background-clip:text;background-clip:text;opacity:0;animation:big 1.2s .35s cubic-bezier(.2,.8,.2,1) forwards;margin-top:-6px}
+.opening .big{font-family:var(--cond);font-weight:700;font-size:clamp(64px,min(21vw,19vh),160px);line-height:1.1;padding:.04em .06em 0;white-space:nowrap;letter-spacing:0;color:transparent;background:linear-gradient(180deg,#fff,#cfcfcf 60%,#8d8d8d);-webkit-background-clip:text;background-clip:text;opacity:0;animation:big 1.2s .35s cubic-bezier(.2,.8,.2,1) forwards;margin-top:-4px}
 @keyframes big{from{opacity:0;transform:scale(1.25);filter:blur(12px)}to{opacity:1;transform:none;filter:none}}
 .opening .studio{font-family:var(--cond);font-weight:700;font-size:clamp(16px,4vw,24px);letter-spacing:.06em;line-height:1.05;color:#fff;opacity:0;animation:up .9s 1.2s forwards;margin-top:14px}
-.opening .pill{display:inline-block;margin-top:34px;border:1.5px solid var(--gold);color:var(--gold2);border-radius:999px;padding:8px 22px;font-family:var(--cond);font-weight:600;letter-spacing:.12em;font-size:clamp(13px,3vw,16px);opacity:0;animation:up .9s 1.8s forwards}
+.opening .apill{display:inline-block;margin-top:34px;border:1.5px solid var(--gold);color:var(--gold2);border-radius:999px;padding:8px 22px;font-family:var(--cond);font-weight:600;letter-spacing:.12em;font-size:clamp(13px,3vw,16px);opacity:0;animation:up .9s 1.8s forwards}
 .opening .wa{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;color:var(--gold2);font-family:var(--cond);font-weight:700;font-size:clamp(26px,7vw,40px);letter-spacing:.02em;opacity:0;animation:up .9s 2.1s forwards}
 .opening .wa svg{width:.9em;height:.9em;fill:var(--gold2)}
 @keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -135,6 +135,35 @@ section{position:relative;padding:90px 0}
 .serv .from{font-family:var(--serif);font-size:18px}
 .ghost{position:absolute;font-family:var(--serif);font-size:clamp(70px,12vw,150px);color:#ffffff07;letter-spacing:.05em;pointer-events:none;white-space:nowrap}
 @media (max-width:760px){.serv{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-right:-20px;padding-right:20px;scrollbar-width:none;gap:14px}.serv::-webkit-scrollbar{display:none}.serv>div{flex:0 0 70%;scroll-snap-align:start}.serv .ring{width:120px;height:120px}}
+
+
+/* tiras verticales de servicios */
+.strips{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.strip{position:relative;padding-left:26px;display:block}
+.strip .n{font-family:var(--serif);font-size:22px;color:#ffffff55;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.strip .n::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--red2);box-shadow:0 0 8px var(--red2)}
+.strip .v{position:absolute;left:0;top:58px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:12px;letter-spacing:.18em;color:#fff;text-transform:uppercase}
+.strip .img{aspect-ratio:1/3.1;overflow:hidden;background:var(--card);border-radius:3px;position:relative}
+.strip .img img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);transition:filter .5s,transform .6s}
+.strip .img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#d4202a55);opacity:0;transition:opacity .5s}
+.strip:hover .img img{filter:grayscale(0);transform:scale(1.05)}
+.strip:hover .img::after{opacity:1}
+.strip p{font-size:13px;color:var(--mute);margin-top:12px;line-height:1.45}
+@media (max-width:900px){.strips{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin-right:-20px;padding-right:20px;scrollbar-width:none}.strips::-webkit-scrollbar{display:none}.strip{flex:0 0 46%;scroll-snap-align:start}.strip .img{aspect-ratio:1/2.2}}
+/* cápsulas por zona */
+.zones{background:#1b1c1e;padding:70px 0 80px;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.zones .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:30px}
+.zones .bar button{width:56px;height:40px;font-size:26px;color:var(--red2)}
+.zones h2{font-family:var(--sans);font-size:14px;letter-spacing:.24em;font-weight:600;text-align:center;white-space:nowrap}
+.pills{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px calc(50% - 105px);scrollbar-width:none;scroll-behavior:smooth}
+.pills::-webkit-scrollbar{display:none}
+.pill{flex:0 0 210px;aspect-ratio:1/2.15;border-radius:999px;overflow:hidden;position:relative;scroll-snap-align:center;background:#222}
+.pill img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.15) brightness(.7);transition:filter .4s}
+.pill span{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:19px;letter-spacing:.18em;font-weight:600;text-shadow:0 2px 12px #000a}
+.pill small{position:absolute;left:0;right:0;bottom:40px;text-align:center;color:#ffffffc0;font-size:12px;letter-spacing:.08em}
+.pill:hover img{filter:grayscale(0) brightness(.8)}
+.pill.on{outline:3px solid var(--red2);outline-offset:5px;box-shadow:0 0 30px #d4202a88}
+@media (max-width:600px){.zones{padding:46px 0 52px}.pill{flex-basis:140px}.pills{padding:6px calc(50% - 70px);gap:12px}.pill span{font-size:13px}.pill small{bottom:24px;font-size:11px}.zones h2{font-size:12px;letter-spacing:.14em}.zones .bar button{width:40px}}
 
 /* turnos */
 .book{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
@@ -244,7 +273,7 @@ footer.site .legal{border-top:1px solid var(--line);margin-top:26px;padding-top:
     <div class="sig">Martin Pandolfi</div>
     <div class="big">TATTOO</div>
     <div class="studio">OLD SCHOOL<br>STUDIO TATTOO</div>
-    <div class="pill">AGENDÁ TU TURNO</div>
+    <div class="apill">AGENDÁ TU TURNO</div>
     <div class="wa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>341 744-1611</div>
   </div>
 </div>
@@ -252,7 +281,7 @@ footer.site .legal{border-top:1px solid var(--line);margin-top:26px;padding-top:
 <nav class="main" id="nav" aria-label="Principal">
   <div class="wrap">
     <a class="brand" href="#top"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="#c9a15a" stroke-width="2.5"/><text x="50" y="64" text-anchor="middle" font-family="Old Standard TT,Georgia,serif" font-size="44" fill="#e8c98a">MP</text></svg><span><b>Martin Pandolfi</b><small>OLD SCHOOL STUDIO</small></span></a>
-    <ul><li><a href="#galeria">Galería</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#turnos">Turnos</a></li><li><a href="#contacto">Contacto</a></li></ul>
+    <ul><li><a href="#servicios">Servicios</a></li><li><a href="#zonas">Zonas</a></li><li><a href="#galeria">Galería</a></li><li><a href="#turnos">Turnos</a></li><li><a href="#contacto">Contacto</a></li></ul>
     <a class="btn red" href="#turnos">Reservar</a>
   </div>
 </nav>
@@ -288,6 +317,30 @@ footer.site .legal{border-top:1px solid var(--line);margin-top:26px;padding-top:
   </div>
 </section>
 
+<section id="servicios">
+  <div class="glow" style="width:460px;height:380px;left:-160px;top:30%;opacity:.6"></div>
+  <div class="wrap">
+    <div class="head reveal"><h2>Servicios</h2><p>Cada trabajo empieza con una charla. Traé tu idea, una foto o una referencia y la armamos juntos.</p></div>
+    <div class="strips reveal">
+      <a class="strip" href="#galeria"><div class="n">01</div><div class="v">New School</div><div class="img"><img src="fotos/pierna-bob.jpg" alt="Tatuaje New School de Bob Esponja"></div><p>Personajes con color y onda caricatura.</p></a>
+      <a class="strip" href="#galeria"><div class="n">02</div><div class="v">Realismo</div><div class="img"><img src="fotos/pierna-tigre.jpg" alt="Tigre realista"></div><p>Animales y retratos en negro y gris.</p></a>
+      <a class="strip" href="#galeria"><div class="n">03</div><div class="v">Black &amp; grey</div><div class="img"><img src="fotos/brazo-mujer.jpg" alt="Retrato con flores en brazo"></div><p>Sombras suaves y contraste que dura.</p></a>
+      <a class="strip" href="#galeria"><div class="n">04</div><div class="v">Color</div><div class="img"><img src="fotos/espalda-atrapasuenos.jpg" alt="Atrapasueños a color en espalda"></div><p>Rosas, flores y piezas con color vivo.</p></a>
+      <a class="strip" href="#galeria"><div class="n">05</div><div class="v">Líneas finas</div><div class="img"><img src="fotos/pecho-loto.jpg" alt="Flor de loto en línea fina"></div><p>Delicaditos, símbolos y lettering.</p></a>
+      <a class="strip" href="#turnos"><div class="n">06</div><div class="v">Diseño a medida</div><div class="img"><img src="fotos/martin-dibujo.jpg" alt="Martin tatuando un diseño propio"></div><p>Tu idea dibujada desde cero. También piercing.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="zones" id="zonas">
+  <div class="wrap bar reveal">
+    <button type="button" onclick="pillScroll(-1)" aria-label="Anterior">⟵</button>
+    <h2>TRABAJOS POR ZONA</h2>
+    <button type="button" onclick="pillScroll(1)" aria-label="Siguiente">⟶</button>
+  </div>
+  <div class="pills" id="pills"></div>
+</section>
+
 <section id="galeria" style="padding-top:20px">
   <div class="glow" style="width:500px;height:400px;right:-100px;top:0;opacity:.6"></div>
   <div class="wrap">
@@ -298,18 +351,7 @@ footer.site .legal{border-top:1px solid var(--line);margin-top:26px;padding-top:
   </div>
 </section>
 
-<section id="servicios">
-  <div class="ghost" style="right:2%;top:40px">TATTOO</div>
-  <div class="ghost" style="left:2%;bottom:30px">OLD SCHOOL</div>
-  <div class="wrap">
-    <div class="head reveal" style="justify-content:center;text-align:center"><h2>Servicios</h2></div>
-    <div class="serv reveal">
-      <div><div class="ring"><svg viewBox="0 0 64 64"><path d="M14 50 40 24M36 20l8 8M44 12l8 8-6 6-8-8zM14 50l-4 4M22 42l4 4"/></svg></div><h3>Tatuajes</h3><p>Color, black &amp; grey, New School, realismo y líneas finas.</p><div class="from">Presupuesto por WhatsApp</div></div>
-      <div><div class="ring"><svg viewBox="0 0 64 64"><path d="M12 52l6-18 26-26 12 12-26 26z"/><path d="M38 14l12 12M18 34l12 12"/></svg></div><h3>Diseño a medida</h3><p>Tu idea dibujada desde cero. Diseños semanales disponibles.</p><div class="from">Incluido en tu tatuaje</div></div>
-      <div><div class="ring"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="14"/><circle cx="32" cy="18" r="4"/><path d="M32 22v4"/></svg></div><h3>Piercing</h3><p>Colocación con material estéril y joyería de calidad.</p><div class="from">Consultá modelos</div></div>
-    </div>
-  </div>
-</section>
+
 
 <section id="turnos">
   <div class="glow" style="width:500px;height:420px;right:-160px;top:10%"></div>
@@ -394,7 +436,7 @@ footer.site .legal{border-top:1px solid var(--line);margin-top:26px;padding-top:
   <div class="wrap">
     <div class="cols">
       <div><a class="brand" href="#top"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="none" stroke="#c9a15a" stroke-width="2.5"/><text x="50" y="64" text-anchor="middle" font-family="Old Standard TT,Georgia,serif" font-size="44" fill="#e8c98a">MP</text></svg><span><b style="color:#fff">Martin Pandolfi</b><small>OLD SCHOOL STUDIO</small></span></a></div>
-      <div><h5>ESTUDIO</h5><ul><li><a href="#galeria">Galería</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#turnos">Turnos</a></li><li><a href="#gift">Gift card</a></li></ul></div>
+      <div><h5>ESTUDIO</h5><ul><li><a href="#servicios">Servicios</a></li><li><a href="#zonas">Zonas</a></li><li><a href="#galeria">Galería</a></li><li><a href="#turnos">Turnos</a></li><li><a href="#gift">Gift card</a></li></ul></div>
       <div><h5>CONTACTO</h5><ul class="ci"><li><a href="https://wa.me/5493417441611" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>341 744-1611</a></li><li><a href="https://www.instagram.com/martinmpandolfi/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2Zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2Zm6.1-8.1a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM21.4 8.1c-.1-1.5-.4-2.9-1.5-4s-2.5-1.4-4-1.5C14.3 2.5 9.7 2.5 8.1 2.6c-1.5.1-2.9.4-4 1.5S2.7 6.6 2.6 8.1c-.1 1.6-.1 6.2 0 7.8.1 1.5.4 2.9 1.5 4s2.5 1.4 4 1.5c1.6.1 6.2.1 7.8 0 1.5-.1 2.9-.4 4-1.5s1.4-2.5 1.5-4c.1-1.6.1-6.2 0-7.8Zm-2.1 9.7a3.1 3.1 0 0 1-1.8 1.8c-1.2.5-4.1.4-5.5.4s-4.3.1-5.5-.4a3.1 3.1 0 0 1-1.8-1.8c-.5-1.2-.4-4.1-.4-5.5s-.1-4.3.4-5.5a3.1 3.1 0 0 1 1.8-1.8c1.2-.5 4.1-.4 5.5-.4s4.3-.1 5.5.4a3.1 3.1 0 0 1 1.8 1.8c.5 1.2.4 4.1.4 5.5s.1 4.3-.4 5.5Z"/></svg>@martinmpandolfi</a></li></ul></div>
       <div><a class="btn red" href="https://wa.me/5493417441611?text=Hola%20Martin!%20Quiero%20consultar%20por%20un%20tatuaje." target="_blank" rel="noopener">Escribime</a></div>
     </div>
@@ -456,12 +498,17 @@ const G=[
  ["brazo-rosas","Brazo","Rosas en black & grey",1],["pierna-guerrero","Pierna","Guerrero oscuro",0]
 ];
 const Z=["Todos","Espalda","Brazo","Antebrazo","Pierna","Pecho"];let zona="Todos";
-function draw(){$("#chips").innerHTML=Z.map(z=>`<button type="button" aria-pressed="${z===zona}" onclick="zona='${z}';draw()">${z}</button>`).join("");
+function draw(){document.querySelectorAll(".pill").forEach(p=>p.classList.toggle("on",p.dataset.z===zona));$("#chips").innerHTML=Z.map(z=>`<button type="button" aria-pressed="${z===zona}" onclick="zona='${z}';draw()">${z}</button>`).join("");
  $("#gal").innerHTML=G.filter(g=>zona==="Todos"||g[1]===zona).map(([f,z,t,tall])=>`<figure class="${tall?"tall":""}" onclick="lbOpen('${f}','${t}')"><img src="fotos/${f}.jpg" alt="${t}" loading="lazy"><figcaption>${t}</figcaption></figure>`).join("");}
 function lbOpen(f,t){$("#lbImg").src=`fotos/${f}.jpg`;$("#lbImg").alt=t;$("#lbCap").textContent=t;$("#lb").classList.add("on")}
 function lbClose(){$("#lb").classList.remove("on")}
 addEventListener("keydown",e=>{if(e.key==="Escape")lbClose()});
 draw();
+
+const ZP={Espalda:["espalda-atrapasuenos","ESPALDA"],Brazo:["brazo-mujer","BRAZOS"],Antebrazo:["antebrazo-granada","ANTEBRAZOS"],Pierna:["pierna-tigre","PIERNAS"],Pecho:["pecho-loto","PECHO"]};
+$("#pills").innerHTML=Object.entries(ZP).map(([z,[f,l]])=>{const n=G.filter(g=>g[1]===z).length;return `<button class="pill" type="button" data-z="${z}" onclick="zona='${z}';draw();document.getElementById('galeria').scrollIntoView()"><img src="fotos/${f}.jpg" alt=""><span>${l}</span><small>${n} ${n===1?"trabajo":"trabajos"}</small></button>`}).join("");
+function pillScroll(d){const p=$("#pills");p.scrollBy({left:d*(p.querySelector(".pill").offsetWidth+22)})}
+setTimeout(()=>{const p=$("#pills");p.scrollLeft=(p.scrollWidth-p.clientWidth)/2},60);
 
 /* turnos */
 const SEL={zona:null,tam:null},D={v:null},OPC={zona:["Brazo","Antebrazo","Espalda","Pecho","Pierna","Mano","Otra"],tam:["Chico","Mediano","Grande","Pieza completa"]};
